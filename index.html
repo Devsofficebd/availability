@@ -14,112 +14,26 @@ body {
   margin: 0;
   padding: 0;
 }
-
-h1 {
-  margin-top: 50px;
-  font-size: 36px;
-}
-
+b{
+color: #000;
+font-size: 1.3em}
+html{
+overflow-x:hidden;}
 /* Hero Section Styles */
 .hero {
   padding: 50px;
   text-align: center;
   color: #fff;
-  background-image: url("https://static.elfsight.com/apps/all-in-one-chat/patterns/background-whatsapp.jpg");
+  background-image: url("https://devsoffice.com/wp-content/uploads/2023/12/Purple-Gradient-Opposite-Day-Flyer-1.png");
   background-size: cover;
   background-position: center;
-  min-height: 60vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transform: scale(1.3);
 }
-
-.hero h1,
-.hero h3 {
-  color: #000;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .hero {
-    font-size: 16px;
-  }
-
-  .countdown {
-    font-size: 24px;
-  }
-}
-
-/* Countdown Styles */
-.countdown {
-  font-size: 36px;
-  margin-bottom: 30px;
-}
-
-.days,
-.hours,
-.minutes,
-.seconds {
-  display: inline-block;
-  margin: 0 10px !important;
-  padding: 15px 20px;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
-  font-size: 2em;
-}
-
-p {
-  font-size: 1.3em;
-  color: #000;
-  margin-bottom: 30px;
-  width: 30vw;
-}
-
-/* Countdown Section Styles */
-.section_countdown {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: auto;
-}
-
-#current-time,
-#bangladesh-time {
-  font-size: 1.5em;
-  margin-bottom: 20px;
-  font-weight: 500;
-  color: #000;
-}
-
-#timezone {
-  font-size: 16px;
-  margin-bottom: 20px;
-  padding: 10px;
-  width: 100%;
-  padding: 10px 20px;
-}
-
-#countdown {
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-
-#timezone-name {
-  font-style: italic;
-  color: #777;
-  margin-bottom: 20px;
-}
-
-@media only screen and (max-width: 768px) {
-  #timezone {
-    font-size: 14px;
-  }
-
-  #countdown {
-    font-size: 24px;
-  }
   .days,
 .hours,
 .minutes,
@@ -129,66 +43,87 @@ p {
   padding: 15px 20px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.5);
-  font-size: 2em;
+  font-size: 3em;
 }
-.hero {
-  padding: 10px;
-  text-align: center;
-  color: #fff;
-  background-image: url("https://static.elfsight.com/apps/all-in-one-chat/patterns/background-whatsapp.jpg");
-  background-size: cover;
-  background-position: center;
-  min-height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-}
-@media only screen and (max-width: 450px) {
 
+#bangladesh-time,#timezone-name {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #000 ;
+}
+#current-time{
+font-size: 4em;
+color :#000;
+margin-bottom: 30px;}
+h3{
+color: #000;
+font-size: 30px;
+margin: 0;
+font-weight: 400;}
+#timezone {
+  font-size: 16px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+@media (max-width: 536px){
+.hero {
+  padding: 20px;
+  transform: scale(1);
+}
   .days,
 .hours,
 .minutes,
 .seconds {
   display:block;
   margin: 10px 10px !important;
-  padding: 15px 20px;
+  padding: 15px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.5);
   font-size: 2em;
 }
-.headingnow,.extrap{
-display: none;}
+#countdown{
+display: flex;
+flex-wrap:nowrap;
+
 }
-.hero {
-  padding: 30px 10px;
-  text-align: center;
-  color: #fff;
-  background-image: url("https://static.elfsight.com/apps/all-in-one-chat/patterns/background-whatsapp.jpg");
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.section_countdown{
-margin: 0px;}
 }
 
-select option {
-  padding: 5px 10px !important;
+@media (max-width: 330px){
+.hero {
+  padding: 10px;
+  transform: scale(1);
+}
+  .days,
+.hours,
+.minutes,
+.seconds {
+  display:block;
+  margin: 10px 10px !important;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 2em;
+}
+#countdown{
+display: flex;
+flex-wrap:wrap;
+align-items: center;
+justify-content: center;
+
+}
 }
 
   </style>
 </head>
 <body>
   <section class="hero">
-    <h1 class="headingnow">Hello, We ensure best services</h1>
-    <p class='extrap'>Normally it's very late night here. We will be back when our time is<b> 5:00 am</b>. You can check, after how much times we will be back. We both live in a difference timezone. I am from <b>Bangladesh.</b></p>
+
 <div class="section">
+
     <div id="bangladesh-time"></div>
     
     <select id="timezone">
@@ -212,8 +147,11 @@ select option {
 </select>
 <div id="timezone-name"></div>
 </div>
-<div id="countdown" class="section_countdown"></div>
+<div class="section_countdown">
 <div id="current-time"></div>
+<b>We will be back within</b>
+<div id="countdown"></div></div>
+
 
   </section>
 
@@ -249,10 +187,10 @@ select option {
         var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-        document.getElementById("countdown").innerHTML ="<h3>We will be back after </h3>" +"<span class='hours'>"+ hours + "h </span>"
+        document.getElementById("countdown").innerHTML ="<span class='hours'>"+ hours + "h </span>"
             +"<span class='minutes'>"+ minutes + "m </span>" +"<span class='seconds'>"+ seconds + "s </span>";
 
-        document.getElementById("current-time").innerHTML = "Your Current Time: " + now.toLocaleTimeString(undefined, {timeZone: timezone});
+        document.getElementById("current-time").innerHTML =  now.toLocaleTimeString(undefined, {timeZone: timezone});
         
         // Get the current time in Bangladesh
         var bdTime = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Dhaka' });
