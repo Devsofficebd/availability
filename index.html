@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Hero</title>
+  <style>
+    /* Base styles */
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 50px;
+  font-size: 36px;
+}
+
+/* Hero Section Styles */
+.hero {
+  padding: 50px;
+  text-align: center;
+  color: #fff;
+  background-image: url("https://static.elfsight.com/apps/all-in-one-chat/patterns/background-whatsapp.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1,
+.hero h3 {
+  color: #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero {
+    font-size: 16px;
+  }
+
+  .countdown {
+    font-size: 24px;
+  }
+}
+
+/* Countdown Styles */
+.countdown {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.days,
+.hours,
+.minutes,
+.seconds {
+  display: inline-block;
+  margin: 0 10px !important;
+  padding: 15px 20px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 2em;
+}
+
+p {
+  font-size: 1.3em;
+  color: #000;
+  margin-bottom: 30px;
+}
+
+/* Countdown Section Styles */
+.section_countdown {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: auto;
+}
+
+#current-time,
+#bangladesh-time {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #000;
+}
+
+#timezone {
+  font-size: 16px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  padding: 10px 20px;
+}
+
+#countdown {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+#timezone-name {
+  font-style: italic;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  #timezone {
+    font-size: 14px;
+  }
+
+  #countdown {
+    font-size: 24px;
+  }
+  .days,
+.hours,
+.minutes,
+.seconds {
+  display:inline-block;
+  margin: 10px 10px !important;
+  padding: 15px 20px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 2em;
+}
+.hero {
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  background-image: url("https://static.elfsight.com/apps/all-in-one-chat/patterns/background-whatsapp.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+}
+@media only screen and (max-width: 450px) {
+
+  .days,
+.hours,
+.minutes,
+.seconds {
+  display:block;
+  margin: 10px 10px !important;
+  padding: 15px 20px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 2em;
+}
+.headingnow,.extrap{
+display: none;}
+}
+.hero {
+  padding: 30px 10px;
+  text-align: center;
+  color: #fff;
+  background-image: url("https://static.elfsight.com/apps/all-in-one-chat/patterns/background-whatsapp.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section_countdown{
+margin: 0px;}
+}
+
+select option {
+  padding: 5px 10px !important;
+}
+
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1 class="headingnow">Hello, We ensure best services</h1>
+    <p class='extrap'>Normally it's very late night here. We will be back when our time is<b> 5:00 am</b>. You can check, after how much times we will be back. We both live in a difference timezone. I am from <b>Bangladesh.</b></p>
+<div class="section">
+    <div id="bangladesh-time"></div>
+    
+    <select id="timezone">
+    <option value="auto" selected>Auto Detected</option>
+    <option value="Asia/Kolkata">India (GMT+5:30)</option>
+    <option value="Asia/Dhaka">Bangladesh (GMT+6)</option>
+    <option value="Asia/Kathmandu">Nepal (GMT+5:45)</option>
+    <option value="Asia/Karachi">Pakistan (GMT+5)</option>
+    <option value="Asia/Tokyo">Japan (GMT+9)</option>
+    <option value="Asia/Seoul">South Korea (GMT+9)</option>
+    <option value="Asia/Singapore">Singapore (GMT+8)</option>
+    <option value="Asia/Shanghai">China (GMT+8)</option>
+    <option value="Asia/Colombo">Sri Lanka (GMT+5:30)</option>
+    <option value="Asia/Dubai">UAE (GMT+4)</option>
+    <option value="Australia/Sydney">Australia (GMT+10)</option>
+    <option value="Europe/London">United Kingdom (GMT)</option>
+    <option value="Europe/Berlin">Germany (GMT+1)</option>
+    <option value="Europe/Paris">France (GMT+1)</option>
+    <option value="America/New_York">United States (Eastern Time)</option>
+    <option value="America/Los_Angeles">United States (Pacific Time)</option>
+</select>
+<div id="timezone-name"></div>
+</div>
+<div id="countdown" class="section_countdown"></div>
+<div id="current-time"></div>
+
+  </section>
+
+
+
+
+
+<script>
+    function updateCountdown() {
+        var now = new Date();
+        var target = new Date(now);
+        var timezone = document.getElementById("timezone").value;
+
+        if (timezone === "auto") {
+            timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            document.getElementById("timezone").value = timezone;
+            document.getElementById("timezone-name").innerHTML = "Detected Timezone: " + timezone;
+        } else {
+            document.getElementById("timezone-name").innerHTML = ""; // Clear the timezone name display
+        }
+
+        // Set the target time to 5:00 AM the next day
+        target.setDate(target.getDate() + 1);
+        target.setUTCHours(0, 0, 0, 0); // Set it to 00:00 UTC
+        target.setHours(5); // Set it to 05:00 in the local timezone
+
+        // Adjust target time based on the selected timezone
+        target = new Date(target.toLocaleString("en-US", {timeZone: timezone}));
+
+        var timeDiff = target - now;
+
+        var hours = Math.floor(timeDiff / (1000 * 60 * 60));
+        var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML ="<h3>We will be back after </h3>" +"<span class='hours'>"+ hours + "h </span>"
+            +"<span class='minutes'>"+ minutes + "m </span>" +"<span class='seconds'>"+ seconds + "s </span>";
+
+        document.getElementById("current-time").innerHTML = "Your Current Time: " + now.toLocaleTimeString(undefined, {timeZone: timezone});
+        
+        // Get the current time in Bangladesh
+        var bdTime = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Dhaka' });
+        document.getElementById("bangladesh-time").innerHTML = "Bangladesh time now " + bdTime;
+
+        setTimeout(updateCountdown, 1000);
+    }
+
+    updateCountdown();
+</script>
+
+</body>
+</html>
