@@ -1,206 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Availability</title>
-  <style>
-    /* Base styles */
-/* General Styles */
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
-}
-b{
-color: #000;
-font-size: 1.3em}
-html{
-overflow-x:hidden;}
-/* Hero Section Styles */
-.hero {
-  padding: 50px;
-  text-align: center;
-  color: #fff;
-  background-image: url("Purple-Gradient-Opposite-Day-Flyer-1.webp");
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Availability Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+              background-image: url("Purple-Gradient-Opposite-Day-Flyer-1.webp");
   background-size: cover;
-  background-position: center;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transform: scale(1.3);
-}
-  .days,
-.hours,
-.minutes,
-.seconds {
-  display:inline-block;
-  margin: 10px 10px !important;
-  padding: 15px 20px;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
-  font-size: 3em;
-}
-
-#bangladesh-time,#timezone-name {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-  font-weight: 500;
-  color: #000 ;
-}
-#current-time{
-font-size: 4em;
-color :#000;
-margin-bottom: 30px;}
-h3{
-color: #000;
-font-size: 30px;
-margin: 0;
-font-weight: 400;}
-#timezone {
-  font-size: 16px;
-  margin-bottom: 20px;
-  padding: 10px;
-  width: 100%;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
-@media (max-width: 536px){
-.hero {
-  padding: 20px;
-  transform: scale(1);
-}
-  .days,
-.hours,
-.minutes,
-.seconds {
-  display:block;
-  margin: 10px 10px !important;
-  padding: 15px;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
-  font-size: 2em;
-}
-#countdown{
-display: flex;
-flex-wrap:nowrap;
-
-}
-}
-
-@media (max-width: 330px){
-.hero {
-  padding: 10px;
-  transform: scale(1);
-}
-  .days,
-.hours,
-.minutes,
-.seconds {
-  display:block;
-  margin: 10px 10px !important;
-  padding: 15px;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
-  font-size: 2em;
-}
-#countdown{
-display: flex;
-flex-wrap:wrap;
-align-items: center;
-justify-content: center;
-
-}
-}
-
-  </style>
-</head>
-<body>
-  <section class="hero">
-
-<div class="section">
-
-    <div id="bangladesh-time"></div>
-    
-    <select id="timezone">
-    <option value="auto" selected>Auto Detected</option>
-    <option value="Asia/Kolkata">India (GMT+5:30)</option>
-    <option value="Asia/Dhaka">Bangladesh (GMT+6)</option>
-    <option value="Asia/Kathmandu">Nepal (GMT+5:45)</option>
-    <option value="Asia/Karachi">Pakistan (GMT+5)</option>
-    <option value="Asia/Tokyo">Japan (GMT+9)</option>
-    <option value="Asia/Seoul">South Korea (GMT+9)</option>
-    <option value="Asia/Singapore">Singapore (GMT+8)</option>
-    <option value="Asia/Shanghai">China (GMT+8)</option>
-    <option value="Asia/Colombo">Sri Lanka (GMT+5:30)</option>
-    <option value="Asia/Dubai">UAE (GMT+4)</option>
-    <option value="Australia/Sydney">Australia (GMT+10)</option>
-    <option value="Europe/London">United Kingdom (GMT)</option>
-    <option value="Europe/Berlin">Germany (GMT+1)</option>
-    <option value="Europe/Paris">France (GMT+1)</option>
-    <option value="America/New_York">United States (Eastern Time)</option>
-    <option value="America/Los_Angeles">United States (Pacific Time)</option>
-</select>
-<div id="timezone-name"></div>
-</div>
-<div class="section_countdown">
-<div id="current-time"></div>
-<b>We will be back within</b>
-<div id="countdown"></div></div>
-
-
-  </section>
-
-
-
-
-
-<script>
-    function updateCountdown() {
-        var now = new Date();
-        var target = new Date(now);
-        var timezone = document.getElementById("timezone").value;
-
-        if (timezone === "auto") {
-            timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            document.getElementById("timezone").value = timezone;
-            document.getElementById("timezone-name").innerHTML = "Detected Timezone: " + timezone;
-        } else {
-            document.getElementById("timezone-name").innerHTML = ""; // Clear the timezone name display
         }
 
-        // Set the target time to 5:00 AM the next day
-        target.setDate(target.getDate() + 1);
-        target.setUTCHours(0, 0, 0, 0); // Set it to 00:00 UTC
-        target.setHours(5); // Set it to 05:00 in the local timezone
+        .countdown-container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-        // Adjust target time based on the selected timezone
-        target = new Date(target.toLocaleString("en-US", {timeZone: timezone}));
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-        var timeDiff = target - now;
+        #countdown {
+            font-size: 2rem;
+            margin-top: 10px;
+            color: #555;
+        }
 
-        var hours = Math.floor(timeDiff / (1000 * 60 * 60));
-        var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+        #availabilityMessage {
+            color: #27ae60;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown-container">
+        <h1 id="availabilityMessage">I am available</h1>
+        <div id="countdown"></div>
+    </div>
 
-        document.getElementById("countdown").innerHTML ="<span class='hours'>"+ hours + "h </span>"
-            +"<span class='minutes'>"+ minutes + "m </span>" +"<span class='seconds'>"+ seconds + "s </span>";
+    <script>
+        // Change this variable to set your time of availability (in 24-hour format)
+        const availabilityStartHour = 4; // Change this to your preferred start hour (e.g., 5 for 5:00 AM)
+        const availabilityEndHour = 5; // Change this to your preferred end hour (e.g., 22 for 10:00 PM)
 
-        document.getElementById("current-time").innerHTML =  now.toLocaleTimeString(undefined, {timeZone: timezone});
-        
-        // Get the current time in Bangladesh
-        var bdTime = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Dhaka' });
-        document.getElementById("bangladesh-time").innerHTML = "Bangladesh time now " + bdTime;
+        // Function to calculate the time remaining until the availability start or end
+        function calculateTimeRemaining() {
+            const now = new Date();
+            const targetHour = now.getHours() < availabilityStartHour ? availabilityStartHour : availabilityEndHour;
+            const targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate() + (now.getHours() >= targetHour ? 1 : 0), targetHour, 0, 0);
+            const timeDifference = targetTime - now;
 
-        setTimeout(updateCountdown, 1000);
-    }
+            if (now.getHours() >= availabilityStartHour && now.getHours() < availabilityEndHour) {
+                // If it's within the availability hours, return null to indicate the availability message should be shown
+                return null;
+            }
 
-    updateCountdown();
-</script>
+            const hours = Math.floor(timeDifference / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
+            return {
+                hours: hours,
+                minutes: minutes,
+                seconds: seconds
+            };
+        }
+
+        // Function to update the countdown display
+        function updateCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            const availabilityMessageElement = document.getElementById('availabilityMessage');
+            const timeRemaining = calculateTimeRemaining();
+
+            if (timeRemaining === null) {
+                countdownElement.style.display = 'none'; // Hide the countdown
+                availabilityMessageElement.style.display = 'block'; // Show the availability message
+            } else {
+                countdownElement.style.display = 'block'; // Show the countdown
+                availabilityMessageElement.style.display = 'none'; // Hide the availability message
+                countdownElement.textContent = `${timeRemaining.hours} hours ${timeRemaining.minutes} minutes ${timeRemaining.seconds} seconds`;
+            }
+        }
+
+        // Update the countdown initially
+        updateCountdown();
+
+        // Update the countdown every second
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
