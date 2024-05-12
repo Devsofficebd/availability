@@ -17,10 +17,19 @@
               background-image: url("Purple-Gradient-Opposite-Day-Flyer-1.webp");
   background-size: cover;
         }
+        body:after {
+    content: "";
+    background: #00000085;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
         .countdown-container {
             text-align: center;
-            background-color: #000;
+            background-color: #fff;
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -38,7 +47,7 @@
         }
 
         #availabilityMessage {
-            color: #fff;
+            color: #000;
             display: none;
         }
     </style>
@@ -46,7 +55,7 @@
 <body>
     <div class="countdown-container">
         <h1 id="availabilityMessage">
-            <img style="display: block;" src="Untitled_design-removebg.png">
+            <img style="display: block; margin-bottom: 30px;" src="Untitled_design-removebg.png">
             I am available to work now.</h1>
         <div id="countdown"></div>
     </div>
